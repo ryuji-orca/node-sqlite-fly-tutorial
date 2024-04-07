@@ -88,7 +88,7 @@ const server = http
   .listen(process.env.SERVER_PORT, () => {
     const address = server.address();
     if (!address) {
-      console.log("Server listening");
+      console.log("Server listening!");
       return;
     }
     const url =
