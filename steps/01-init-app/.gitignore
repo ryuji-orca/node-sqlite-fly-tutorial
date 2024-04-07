@@ -4,3 +4,6 @@ node_modules
 /.vscode
 prisma/sqlite.db
 prisma/sqlite.db-journal
+Dockerfile
+.dockerignore
+.git

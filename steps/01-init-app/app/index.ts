@@ -31,6 +31,18 @@ const server = http
     console.log(`${req.method} ${req.url}`);
 
     switch (`${req.method} ${req.url}`) {
+      case "GET /healthcheck": {
+        try {
+          await getCurrentCount();
+          res.writeHead(200);
+          res.end("OK");
+        } catch (error: unknown) {
+          console.error(error);
+          res.writeHead(500);
+          res.end("ERROR");
+        }
+        break;
+      }
       case "POST /": {
         const params = await parseFormBody(req);
         const intent = params.get("intent");
@@ -73,7 +85,7 @@ const server = http
       }
     }
   })
-  .listen(process.env.PORT, () => {
+  .listen(process.env.SERVER_PORT, () => {
     const address = server.address();
     if (!address) {
       console.log("Server listening");
