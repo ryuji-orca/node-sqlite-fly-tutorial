@@ -65,7 +65,7 @@ const server = http
         res.end(/* html */ `
 <html>
   <head>
-    <title>Demo App</title>
+    <title>Demo App(Staging)</title>
   </head>
   <body>
     <h1>Demo App</h1>
